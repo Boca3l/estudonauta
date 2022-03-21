@@ -22,18 +22,18 @@
                 $busca = $banco->query("SELECT * FROM jogos");
                 if($busca->num_rows ==0){
                     echo "<tr><td>Infelizmente a busca deu errado<td></tr>";
-                }else{
+                }else{  
                     while($reg=$busca->fetch_object()){
                         $t = thumb($reg->capa);
                         echo "<tr><td><img src='$t' class='mini' />";
-                        echo "<td><a href='detalhes.php'>$reg->nome</a>";
+                        echo "<td><a href='detalhes.php?cod=$reg->cod'>$reg->nome</a>";
                         echo "<td>adm</tr>";
                     }
                 }
             ?>
         </table>
     </div>
-    <img src="" alt="">
+
     <?php $banco->close(); ?>
 </body>
 </html>

@@ -11,18 +11,18 @@
     <?php
         require_once "includes/banco.php";
         require_once "includes/funcoes.php";
-        $cod = $_GET['cod'] ?? 0;
-
-        $row = $banco->query("SELECT * FROM jogos")->fetch_object();
-        $t = thumb($row->capa)
+        
     ?>
 
     <div id="corpo">
         <?php
+            $cod = $_GET['cod'] ?? 0;
+            $row = $banco->query("SELECT * FROM jogos")->fetch_object();
+            $t = thumb($row->capa);
             echo "<h1>Detalhes do jogo $row->nome</h1>";
         ?>
 
-        <table>
+        <table class="detalhes">
             <?php echo "
                 <tr>
                     <td rowspan='3'><img src='$t' /></td>

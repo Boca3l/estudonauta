@@ -17,9 +17,9 @@
     <div id="corpo">
         <?php
             $cod = $_GET['cod'] ?? 0;
-            $row = $banco->query("SELECT * FROM jogos")->fetch_object();
+            $row = $banco->query("SELECT * FROM jogos WHERE cod = $cod")->fetch_object();
             $t = thumb($row->capa);
-            echo "<h1>Detalhes do jogo $row->nome</h1>";
+            echo "<h1>Detalhes de $row->nome</h1>";
         ?>
 
         <table class="detalhes">
@@ -39,6 +39,6 @@
         </table>
 
     </div>
-    
+    <?php $banco->close(); ?>
 </body>
 </html>

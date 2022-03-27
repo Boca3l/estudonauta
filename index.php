@@ -15,8 +15,15 @@
 
     <div id="corpo">
 
+        <?php include_once "topo.php"; ?>
+
         <h1>Escolha seu jogo</h1>
 
+        <form action="index.php" method="get" id="busca">
+            Ordenar: Nome | Produtora | Nota Alta| Nota Baixa| Genero |
+            Buscar: <input type="text"name="c" size="10" maxlength="40"/>
+            <input type="submit" value="ok">
+        </form>
         <table class="listagem">
             <?php
                 $q = "SELECT j.cod, j.nome, g.genero, j.capa, p.produtora 
@@ -40,7 +47,6 @@
             ?>
         </table>
     </div>
-
-    <?php $banco->close(); ?>
+    <?php include_once "rodape.php"; ?>
 </body>
 </html>

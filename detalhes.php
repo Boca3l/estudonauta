@@ -41,6 +41,6 @@
         <a href="index.php"><img src="icones/icoback.png" alt="Voltar"></a>
 
     </div>
-    <?php $banco->close(); ?>
+    <?php include_once "rodape.php"; ?>
 </body>
 </html>

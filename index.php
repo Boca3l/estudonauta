@@ -11,7 +11,8 @@
     <?php
         require_once "includes/banco.php";
         require_once "includes/funcoes.php";
-        $ordem = $_GET['o']??"n";
+        $ordem = $_GET['o'] ?? "n";
+        $chave = $_GET['c'] ?? "";
     ?>
 
     <div id="corpo">
@@ -27,15 +28,21 @@
             <a href="index.php?o=n1">Nota Alta</a> | 
             <a href="index.php?o=n2">Nota Baixa</a> | 
             <a href="index.php?o=g">Genero</a> | 
+            <a href="index.php?">Mostrar Todos</a> | 
             Buscar: <input type="text"name="c" size="10" maxlength="40"/>
             <input type="submit" value="ok">
         </form>
         <table class="listagem">
             <?php
+
                 $q = "SELECT j.cod, j.nome, g.genero, j.capa, p.produtora 
                 FROM jogos j 
                 JOIN generos g ON j.genero = g.cod
                 JOIN produtoras p ON j.produtora = p.cod ";
+
+                if(!empty($chave)){
+                    $q .= "WHERE j.nome LIKE '%$chave%' OR p.produtora LIKE '%$chave%' OR g.genero LIKE '%$chave%' ";
+                }
 
                 switch($ordem){
                     case "p":
@@ -48,7 +55,7 @@
                         $q .= "ORDER BY j.nota ASC";
                         break;
                     case "g":
-                        $q .= "ORDER BY g.genero";
+                        $q .= "ORDER BY g.genero, j.nome";
                         break;
                     default:
                         $q .= "ORDER BY j.nome";

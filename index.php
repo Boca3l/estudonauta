@@ -11,6 +11,7 @@
     <?php
         require_once "includes/banco.php";
         require_once "includes/funcoes.php";
+        $ordem = $_GET['o']??"n";
     ?>
 
     <div id="corpo">
@@ -20,7 +21,12 @@
         <h1>Escolha seu jogo</h1>
 
         <form action="index.php" method="get" id="busca">
-            Ordenar: Nome | Produtora | Nota Alta| Nota Baixa| Genero |
+            Ordenar: 
+            <a href="index.php?o=n">Nome</a> | 
+            <a href="index.php?o=p">Produtora</a> | 
+            <a href="index.php?o=n1">Nota Alta</a> | 
+            <a href="index.php?o=n2">Nota Baixa</a> | 
+            <a href="index.php?o=g">Genero</a> | 
             Buscar: <input type="text"name="c" size="10" maxlength="40"/>
             <input type="submit" value="ok">
         </form>
@@ -29,7 +35,25 @@
                 $q = "SELECT j.cod, j.nome, g.genero, j.capa, p.produtora 
                 FROM jogos j 
                 JOIN generos g ON j.genero = g.cod
-                JOIN produtoras p ON j.produtora = p.cod";
+                JOIN produtoras p ON j.produtora = p.cod ";
+
+                switch($ordem){
+                    case "p":
+                        $q .= "ORDER BY p.produtora";
+                        break;
+                    case "n1":
+                        $q .= "ORDER BY j.nota DESC";
+                        break;
+                    case "n2":
+                        $q .= "ORDER BY j.nota ASC";
+                        break;
+                    case "g":
+                        $q .= "ORDER BY g.genero";
+                        break;
+                    default:
+                        $q .= "ORDER BY j.nome";
+                        break;
+                }
 
                 $busca = $banco->query("$q");
                 if($busca->num_rows ==0){

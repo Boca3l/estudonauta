@@ -1,5 +1,13 @@
 <!DOCTYPE html>
+    <?php
+        require_once "includes/banco.php";
+        require_once "includes/funcoes.php";
+        require_once "includes/login.php";
+        $ordem = $_GET['o'] ?? "n";
+        $chave = $_GET['c'] ?? "";
+    ?>
 <html lang="pt-BR">
+    
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,23 +18,13 @@
       rel="stylesheet"> 
 </head>
 <body>
-    <?php
-        require_once "includes/banco.php";
-        require_once "includes/funcoes.php";
-        $ordem = $_GET['o'] ?? "n";
-        $chave = $_GET['c'] ?? "";
-    ?>
 
     <div id="corpo">
 
         <?php include_once "topo.php"; ?>
 
         <h1>Escolha seu jogo</h1>
-    <!-- Comentado // sistema de alertas
-        <?php echo msg_sucesso('Mensagem aberta com sucesso!'); ?>
-        <?php echo msg_aviso('Mensagem aberta com aviso!'); ?>
-        <?php echo msg_erro('Mensagem aberta com erro!'); ?>
-    -->
+
         <form action="index.php" method="get" id="busca">
             Ordenar: 
             <a href="index.php?o=n&c=<?php echo $chave; ?>">Nome</a> | 

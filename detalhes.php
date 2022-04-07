@@ -1,5 +1,11 @@
 <!DOCTYPE html>
+<?php
+        require_once "includes/banco.php";
+        require_once "includes/funcoes.php";
+        require_once "includes/login.php"
+    ?>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,19 +14,10 @@
     <link rel="stylesheet" href="estilos/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"> 
-
-    <style>
-        .material-icons{
-            font-size: 48px;
-        }
-    </style>
 </head>
+
 <body>
-    <?php
-        require_once "includes/banco.php";
-        require_once "includes/funcoes.php";
-        
-    ?>
+
 
     <div id="corpo">
         <?php

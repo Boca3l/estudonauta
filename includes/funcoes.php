@@ -19,12 +19,12 @@ function msg_sucesso($m){
 }
 
 function msg_aviso($m){
-    $resp =  "<div class='aviso'><span class='material-icons'></span>$m</div>";
+    $resp =  "<div class='aviso'><span class='material-icons'>info</span>$m</div>";
     return $resp;
 }
 
 function msg_erro($m){
-    $resp =  "<div class='erro'><span class='material-icons'></span>$m</div>";
+    $resp =  "<div class='erro'><span class='material-icons'>error</span>$m</div>";
     return $resp;
 }
 

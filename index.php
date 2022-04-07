@@ -22,9 +22,11 @@
         <?php include_once "topo.php"; ?>
 
         <h1>Escolha seu jogo</h1>
-
-        <?php echo msg_sucesso('Arquivo aberto com sucesso!'); ?>
-
+    <!-- Comentado // sistema de alertas
+        <?php echo msg_sucesso('Mensagem aberta com sucesso!'); ?>
+        <?php echo msg_aviso('Mensagem aberta com aviso!'); ?>
+        <?php echo msg_erro('Mensagem aberta com erro!'); ?>
+    -->
         <form action="index.php" method="get" id="busca">
             Ordenar: 
             <a href="index.php?o=n&c=<?php echo $chave; ?>">Nome</a> | 

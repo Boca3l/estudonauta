@@ -13,5 +13,4 @@
         print_r("<a href='#'>$reg->genero</a></br>");
     }
     */
-
 ?>

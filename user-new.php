@@ -41,7 +41,7 @@
                             if($banco->query($q)){
                                 echo msg_sucesso("Usuário $nome cadastrado com sucesso");
                             }else{
-                                echo msg_erro("Não foi possível criar o usuário $usuário. Talvez o logiin já esteja sendo utilizado.");
+                                echo msg_erro("Não foi possível criar o usuário $usuário. Talvez o login já esteja sendo utilizado.");
                             }
                         }
                     }else{

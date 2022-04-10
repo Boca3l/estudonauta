@@ -10,7 +10,7 @@ header{
 
 .pequeno{
     text-align: right;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 div#corpo{
@@ -31,7 +31,6 @@ form#busca{
     padding: 5px;
 }
 
-
 table.listagem{
     width: 100%;
     text-align: left;
@@ -43,12 +42,13 @@ table.listagem tr{
 }
 
 table.listagem tr:nth-child(even){
-    background-color: #f2f2f2;
+    background-color: #dddde5;
 }
 
 table.listagem td{
-    border: 1px solid #ddd;
+    border: none;
     padding: 10px;
+
 }
 
 table.listagem td:nth-child(1){

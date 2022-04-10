@@ -76,7 +76,13 @@
                         echo "<td><a href='detalhes.php?cod=$reg->cod'>$reg->nome</a>";
                         echo " [$reg->genero]";
                         echo "</br>$reg->produtora";
-                        echo "<td>adm</tr>";
+                        if(is_admin()){
+                            echo "<td> <i class='material-icons'>add_circle</i>";
+                            echo "<i class='material-icons'>edit</i>";
+                            echo "<i class='material-icons'>delete</i>";
+                        }elseif (is_editor()){
+                            echo "<td> <i class='material-icons'>edit</i>";
+                        }
                     }
                 }
             ?>

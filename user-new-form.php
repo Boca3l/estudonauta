@@ -1,0 +1,15 @@
+<h1>Novo Usuário</h1>
+<form action="user-new.php" method="POST">
+    <table>
+        <tr><td>Usuário <td><input type="text" name="usuario" id="usuario" size="10" maxlength="10">
+        <tr><td>Nome <td><input type="text" name="usuario" id="usuario" size="30" maxlength="30">
+        <tr><td>Tipo 
+            <td><select name="usuario" id="usuario">
+                <option value="admin">Administrador</option>
+                <option value="editor" selected>Editor Autorizado</option>
+            </select>
+        <tr><td>Senha <td><input type="password" name="senha1" id="senha1" size="10" maxlength="10"></td></tr>
+        <tr><td>Confirme a senha <td><input type="password" name="senha2" id="senha2" size="10" maxlength="10"></td></tr>
+        <tr><td><input type="submit" value="Salvar"></td></tr>
+    </table>
+</form>

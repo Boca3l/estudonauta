@@ -34,4 +34,26 @@ function logout(){
     unset($_SESSION['tipo']);
 }
 
+function is_logado(){
+    return empty($_SERVER['user'])?false:true;
+}
+
+function is_admin(){
+    $t = $_SESSION['tipo'];
+    if(is_null($t)){
+        return false;
+    }else{
+        return ($t=='admin')?true:false;
+    }
+}
+
+function is_editor(){
+    $t = $_SESSION['tipo'];
+    if(is_null($t)){
+        return false;
+    }else{
+        return ($t=='editor')?true:false;
+    }
+}
+
 ?>

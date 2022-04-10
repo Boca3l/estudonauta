@@ -30,7 +30,20 @@
                     $tipo= $_POST['tipo']??null;
 
                     if($senha1===$senha2){
-                        echo msg_sucesso("Tudo certo para começar");
+                        if(empty($usuario)||empty($nome)||empty($senha1)||empty($senha2)||empty($tipo)){
+                            echo msg_erro("Todos os dados devem ser preenchidos!");
+                            echo $usuario.$nome.$senha1.$senha2.$tipo;
+                            echo "<a href='user-new.php'>".msg_aviso("Voltar para o cadastro")."</a>";
+                        }else{
+                            $senha = gerarHash($senha1);
+                            $q = "INSERT INTO usuarios (usuario,nome,senha,tipo) VALUES ('$usuario','$nome','$senha','$tipo')";
+
+                            if($banco->query($q)){
+                                echo msg_sucesso("Usuário $nome cadastrado com sucesso");
+                            }else{
+                                echo msg_erro("Não foi possível criar o usuário $usuário. Talvez o logiin já esteja sendo utilizado.");
+                            }
+                        }
                     }else{
                         echo msg_erro("Senhas não conferem");
                         echo "<a href='user-new.php'>".msg_aviso("Voltar para o cadastro")."</a>";

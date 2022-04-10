@@ -2,9 +2,9 @@
 <form action="user-new.php" method="POST">
     <table>
         <tr><td>Usuário <td><input type="text" name="usuario" id="usuario" size="10" maxlength="10">
-        <tr><td>Nome <td><input type="text" name="usuario" id="usuario" size="30" maxlength="30">
+        <tr><td>Nome <td><input type="text" name="nome" id="nome" size="30" maxlength="30">
         <tr><td>Tipo 
-            <td><select name="usuario" id="usuario">
+            <td><select name="tipo" id="tipo">
                 <option value="admin">Administrador</option>
                 <option value="editor" selected>Editor Autorizado</option>
             </select>

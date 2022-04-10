@@ -38,10 +38,13 @@
                             $senha = gerarHash($senha1);
                             $q = "INSERT INTO usuarios (usuario,nome,senha,tipo) VALUES ('$usuario','$nome','$senha','$tipo')";
 
-                            if($banco->query($q)){
-                                echo msg_sucesso("Usuário $nome cadastrado com sucesso");
-                            }else{
-                                echo msg_erro("Não foi possível criar o usuário $usuário. Talvez o login já esteja sendo utilizado.");
+                            try{
+                                if($banco->query($q)){
+                                echo msg_sucesso("Usuário $usuario cadastrado com sucesso!");
+                                }
+                            }catch (Exception $ex){
+                                echo msg_erro("Erro ao cadastrar o usuário $usuario, Tente outro login.");
+                                echo "<a href='user-new.php'>".msg_aviso("Voltar para o cadastro")."</a>";
                             }
                         }
                     }else{

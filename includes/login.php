@@ -34,8 +34,14 @@ function logout(){
     unset($_SESSION['tipo']);
 }
 
+function login($user,$nome,$tipo){
+    $_SESSION['user'] = $user;
+    $_SESSION['nome'] = $nome;
+    $_SESSION['tipo'] = $tipo;
+}
+
 function is_logado(){
-    return empty($_SERVER['user'])?false:true;
+    return empty($_SESSION['user'])?false:true;
 }
 
 function is_admin(){

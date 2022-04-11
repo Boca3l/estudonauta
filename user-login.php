@@ -42,9 +42,7 @@
                             $reg = $busca->fetch_object();
                             if(testarHash($s,$reg->senha)){
                                 echo msg_sucesso("Logado com sucesso");
-                                $_SESSION['user'] = $reg->usuario;
-                                $_SESSION['nome'] = $reg->nome;
-                                $_SESSION['tipo'] = $reg->tipo;
+                                login($reg->usuario,$reg->nome,$reg->tipo);
                             }else{
                                 echo msg_erro("Senha inválida!");
                             }
@@ -59,5 +57,6 @@
             echo voltar();
         ?>
     </div>
+    <?php include_once "rodape.php"; ?>
 </body>
 </html>
